@@ -1,0 +1,21 @@
+apiVersion: 1
+
+deleteDatasources:
+  - name: InfluxDB
+    orgId: 1
+
+datasources:
+  - name: InfluxDB
+    uid: influxdb-discord
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    jsonData:
+      version: Flux
+      organization: discord
+      defaultBucket: voice_logs
+      tlsSkipVerify: true
+    secureJsonData:
+      token: $INFLUX_TOKEN
+    isDefault: true
+    editable: true
